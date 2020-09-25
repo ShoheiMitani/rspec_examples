@@ -1,0 +1,8 @@
+# Ignore General files.
+.DS_Store
+
+# Ignore bundler.
+/.bundle
+/vendor/bundle
+
+.irb_history

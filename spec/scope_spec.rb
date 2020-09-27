@@ -12,7 +12,6 @@ describe 'Scope groups' do
   # Called before at context
   #     in the context spec
 
-
   context 'in the context' do
     let!('context_let!') { puts 'Called let! at context'}
     before { puts 'Called before at context' }
@@ -62,9 +61,10 @@ describe 'Bad case' do
 
     # should execute in the nested context
     let(:fuga) { 1 }
+    before(:all) { puts "Called before"}
     before do
       puts "Called here"
-      @sum_up = hoge + 1
+      @sum_up = hoge + fuga
     end
 
     context 'nested context' do

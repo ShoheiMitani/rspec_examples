@@ -1,5 +1,5 @@
 describe 'Shared Examples For groups' do
-  # http://qawsedrftgyhujiko.hatenablog.com/entry/2016/11/05/135008
+  # https://ysk-pro.hatenablog.com/entry/replace_constructor_with_factory_method
   class Car
     def self.create(imported, price)
       if imported
@@ -114,5 +114,28 @@ describe 'Shared Examples For groups' do
 
     it_behaves_like 'guaranteed car'
     it_behaves_like 'right side driving seat car'
+  end
+end
+
+
+describe 'Foo' do
+  describe '#complex_method' do
+    context 'when object is new object' do
+      it 'should create model' do
+        expect { Foo.new.complex_method }.to change { AModel.count }.from(0).to(1)
+
+        model = AModel.last
+        expect(model.a).to eq :b
+      end
+    end
+
+    context 'when object had already persisted before' do
+      it 'should create model' do
+        expect { Foo.new.complex_method }.not_to change { AModel.count }
+
+        model = AModel.last
+        expect(model.a).to eq :b
+      end
+    end
   end
 end

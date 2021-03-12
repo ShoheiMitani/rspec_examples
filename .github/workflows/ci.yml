@@ -12,7 +12,7 @@ jobs:
           branch: main
           name: test-report
           workflow: ci.yml
-          path: report
+          path: tmp
         # Use continue-on-error to run tests even if test-report is not uploaded
         continue-on-error: true
       - uses: actions/upload-artifact@v2

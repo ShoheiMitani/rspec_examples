@@ -116,26 +116,3 @@ describe 'Shared Examples For groups' do
     it_behaves_like 'right side driving seat car'
   end
 end
-
-
-describe 'Foo' do
-  describe '#complex_method' do
-    context 'when object is new object' do
-      it 'should create model' do
-        expect { Foo.new.complex_method }.to change { AModel.count }.from(0).to(1)
-
-        model = AModel.last
-        expect(model.a).to eq :b
-      end
-    end
-
-    context 'when object had already persisted before' do
-      it 'should create model' do
-        expect { Foo.new.complex_method }.not_to change { AModel.count }
-
-        model = AModel.last
-        expect(model.a).to eq :b
-      end
-    end
-  end
-end

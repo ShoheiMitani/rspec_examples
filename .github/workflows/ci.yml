@@ -2,13 +2,26 @@ on: push
 
 jobs:
   # Download test-report and save as test-report-tmp to use the exactly same test report across parallel jobs.
-  download-test-report:
-    runs-on: ubuntu-latest
-    steps:
-
+  # download-test-report:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     # Use dawidd6/action-download-artifact to download JUnit Format XML test report from another branch
+  #     # https://github.com/actions/download-artifact/issues/3
+  #     - uses: dawidd6/action-download-artifact@v2
+  #       with:
+  #         branch: master
+  #         name: test-report
+  #         workflow: ci.yml
+  #         path: report
+  #       # Use continue-on-error to run tests even if test-report is not uploaded
+  #       continue-on-error: true
+  #     - uses: actions/upload-artifact@v2
+  #       with:
+  #         name: test-report-tmp
+  #         path: report
 
   test:
-    needs: download-test-report
+    # needs: download-test-report
     runs-on: ubuntu-latest
     strategy:
       matrix:
